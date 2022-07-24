@@ -6,6 +6,7 @@ const errorMiddleware = require('../middlewares/error');
 const app = express();
 
 app.get('/users', rescue(UserController));
+app.post('/users', rescue(UserController));
 
 app.use(errorMiddleware); 
 
