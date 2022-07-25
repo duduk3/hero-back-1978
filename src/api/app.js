@@ -11,7 +11,7 @@ app.use(cors());
 app.get('/users', rescue(UserController.getAll));
 app.get('/:id', UserController.getById);
 app.post('/users', UserController.create);
-app.post('/:id', UserController.remove);
+app.delete('/:id', UserController.remove);
 
 app.use(errorMiddleware); 
 
