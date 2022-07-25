@@ -12,8 +12,7 @@ const getById = async (req, res) => {
 };
 
 const create = async (req, res) => {
-    const { firstName, lastName, email } = req.body;
-    await User.create(firstName, lastName, email);
+    await User.create(req.body);
     res.status(201).json(req.body);
 };
 
