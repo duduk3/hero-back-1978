@@ -6,20 +6,18 @@ const getAll = async (_req, res) => {
 };
 
 const getById = async (req, res) => {
-    const { id } = req.params;
-    const result = await User.getByPk(id);
+    const result = await User.findByPk(req.params);
     res.status(200).json(result);
 };
 
 const create = async (req, res) => {
-    const { firstName, lastName, email } = req.body;
-    const users = await User.create(firstName, lastName, email);
+    const users = await User.create(req.body[0], req.body[1], req.body[2]);
     res.status(201).json(users);
 };
 
 const remove = async (req, res) => {
     const { id } = req.params;
-    const result = await User.delete(id);
+    const result = await User.destroy({ where: { id } });
     res.status(204).json(result);
 };
 
