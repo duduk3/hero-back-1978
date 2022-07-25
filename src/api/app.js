@@ -9,9 +9,9 @@ const app = express();
 app.use(cors());
 
 app.get('/users', rescue(UserController.getAll));
-app.get('/users/:id', rescue(UserController.getById));
-app.post('/users', rescue(UserController.create));
-app.delete('/users/:id', rescue(UserController.remove));
+app.get('/users/:id', UserController.getById);
+app.post('/users', UserController.create);
+app.delete('/users/:id', UserController.remove);
 
 app.use(errorMiddleware); 
 
